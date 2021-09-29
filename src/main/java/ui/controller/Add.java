@@ -25,12 +25,12 @@ public class Add extends RequestHandler {
             }
             catch (IllegalArgumentException exc) {
                 request.setAttribute("error", exc.getMessage());
-                return "add.jsp";
+                return "Controller?command=AddForm";
             }
         }
         else {
             request.setAttribute("errors", errors);
-            return "add.jsp";
+            return "Controller?command=AddForm";
         }
     }
 

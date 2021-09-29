@@ -34,21 +34,18 @@ public class Controller extends HttpServlet {
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String destination = "index.jsp";
+        String destination;
         String command = request.getParameter("command");
 
-        if (command != null) {
-                RequestHandler handler = handlerFactory.getHandler(command, service);
-                destination = handler.handleRequest(request, response);
+        if (command == null) {
+            command = "Home";
         }
+        RequestHandler handler = handlerFactory.getHandler(command, service);
+        destination = handler.handleRequest(request, response);
 
         RequestDispatcher view = request.getRequestDispatcher(destination);
         view.forward(request, response);
 
-    }
-
-    private String add(HttpServletRequest request, HttpServletResponse response) {
-        return "add.jsp";
     }
 
 }

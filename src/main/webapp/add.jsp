@@ -3,7 +3,9 @@
          pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
-<jsp:include page="head.jsp" />
+<jsp:include page="head.jsp">
+    <jsp:param name="title" value="Voeg een dier toe"/>
+</jsp:include>
 <body>
 <div id="container">
     <jsp:include page="header.jsp">
@@ -23,12 +25,12 @@
         </c:if>
         <h2>Voeg je huisdier toe</h2>
 
-        <form method="POST" action="Controller?command=Add">
+        <form method="POST" action="Controller?command=Add" novalidate>
 
             <p class="form-group ${nameClass}">
                 <label class="control-label" for="name">Naam:</label>
                 <input id="name" name="name" type="text"
-                       value="${namePreviousValue}" >
+                       value="${namePreviousValue}">
             </p>
 
             <p class="form-group ${typeClass}">
@@ -40,8 +42,8 @@
             <p class="form-group ${foodClass}">
                 <label for="food">Aantal keer eten per dag:</label>
                 <input
-                    id="food" name="food" type="number" class="error"
-                    max="10" min="1" value="${foodPreviousValue}">
+                        id="food" name="food" type="number" class="error"
+                        max="10" min="1" value="${foodPreviousValue}">
             </p>
             <p>
                 <input id="submit" type="submit" value="Verstuur">

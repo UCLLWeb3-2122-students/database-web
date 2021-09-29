@@ -2,8 +2,10 @@
          pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
-<jsp:include page="head.jsp" />
 
+<jsp:include page="head.jsp">
+    <jsp:param name="title" value="Home"/>
+</jsp:include>
 <body>
 <div id="container">
     <jsp:include page="header.jsp">
