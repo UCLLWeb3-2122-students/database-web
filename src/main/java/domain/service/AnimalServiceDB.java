@@ -19,7 +19,7 @@ public class AnimalServiceDB implements AnimalService {
     public void add(Animal animal) {
         String query = String.format("insert into %s.animal (name,type,food) values (?,?,?)", schema);
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            PreparedStatement preparedStatement = getConnection().prepareStatement(query);
             preparedStatement.setString(1, animal.getName());
             preparedStatement.setString(2, animal.getType());
             preparedStatement.setInt(3, animal.getFood());
@@ -40,7 +40,7 @@ public class AnimalServiceDB implements AnimalService {
         ArrayList<Animal> animals = new ArrayList<>();
         String sql = String.format("SELECT * from %s.animal", schema);
         try {
-            PreparedStatement statement = connection.prepareStatement(sql);
+            PreparedStatement statement = getConnection().prepareStatement(sql);
             ResultSet result = statement.executeQuery();
             while (result.next()) {
                 int id = result.getInt("id");
@@ -54,4 +54,39 @@ public class AnimalServiceDB implements AnimalService {
         }
         return animals;
     }
+
+    /**
+     * Check the connection and reconnect when necessery
+     * @return the connection with the db, if there is one
+     */
+    private Connection getConnection() {
+        checkConnection();
+        return this.connection;
+    }
+
+    /**
+     * Check if the connection is still open
+     * When connection has been closed: reconnect
+     */
+    private void checkConnection() {
+        try {
+            if (this.connection == null || this.connection.isClosed()) {
+                System.out.println("Connection has been closed");
+                this.reConnect();
+            }
+        } catch (SQLException throwables) {
+            throw new DbException(throwables.getMessage());
+        }
+    }
+
+    /**
+     * Reconnects application to db
+     */
+    private void reConnect() {
+        DbConnectionService.disconnect();   // close connection with db properly
+        DbConnectionService.reconnect();      // reconnect application to db server
+        this.connection = DbConnectionService.getDbConnection();    // assign connection to DBSQL
+    }
+
+
 }
