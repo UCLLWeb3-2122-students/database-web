@@ -9,7 +9,7 @@ import java.util.Properties;
  * Creates connection with database, specifically for properties in web.xml and postgresql
  */
 public class DBConnectionManager {
-    public static Connection connection;
+    private static Connection connection;
     private static DBConnectionManager dbConnectionManager_instance = null;
     private static Properties properties;
     private static String url;
@@ -57,7 +57,7 @@ public class DBConnectionManager {
     /**
      * Create connection with db
      */
-    public static void setConnection() {
+    private static void setConnection() {
         try {
             System.out.print("reconnecting to database ...");
             Class.forName("org.postgresql.Driver");

@@ -5,9 +5,9 @@ import domain.model.Animal;
 import java.util.ArrayList;
 
 public interface AnimalService {
-    void add(Animal animal);
+    void addAnimal(Animal animal);
 
     Animal findAnimalWithName(String naam);
 
-    ArrayList<Animal> getAll();
+    ArrayList<Animal> getAllAnimals();
 }

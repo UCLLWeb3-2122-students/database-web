@@ -1,20 +1,20 @@
 package ui.controller;
 
-import domain.service.AnimalService;
+import domain.service.AppService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public abstract class RequestHandler {
-    protected AnimalService service;
+    protected AppService service;
 
     public abstract String handleRequest (HttpServletRequest request, HttpServletResponse response);
 
-    public AnimalService getService() {
+    public AppService getService() {
         return service;
     }
 
-    public void setService(AnimalService service) {
+    public void setService(AppService service) {
         this.service = service;
     }
 }

@@ -18,7 +18,7 @@ public class Add extends RequestHandler {
         setFood(animal, request, errors);
         if (errors.size() == 0) {
             try {
-                service.add(animal);
+                service.addAnimal(animal);
                 HttpSession session = request.getSession();
                 session.setAttribute("lastAddedAnimal", animal);
                 return "Controller?command=Overview";

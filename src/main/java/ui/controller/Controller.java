@@ -9,15 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import domain.service.AnimalService;
 import domain.service.AnimalServiceDB;
-import domain.service.AnimalServiceInMemory;
+import domain.service.AppService;
 
 @WebServlet("/Controller")
 public class Controller extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
-    private final AnimalService service = new AnimalServiceDB();
+    private final AppService service = new AppService();
     private final HandlerFactory handlerFactory = new HandlerFactory();
 
     public Controller() {

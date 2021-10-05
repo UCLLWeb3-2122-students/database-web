@@ -10,11 +10,11 @@ public class AnimalServiceInMemory implements AnimalService {
     private final ArrayList<Animal> animals = new ArrayList<>();
 
     public AnimalServiceInMemory() {
-        this.add(new Animal(id, "Witje", "Kat", 3));
-        this.add(new Animal(id, "Zwartje", "Konijn", 1));
+        this.addAnimal(new Animal(id, "Witje", "Kat", 3));
+        this.addAnimal(new Animal(id, "Zwartje", "Konijn", 1));
     }
 
-    public void add(Animal animal) {
+    public void addAnimal(Animal animal) {
         if (animal == null)
             throw new IllegalArgumentException("Geef een bestaand dier");
         if (findAnimalWithName(animal.getName()) != null)
@@ -33,7 +33,7 @@ public class AnimalServiceInMemory implements AnimalService {
         return null;
     }
 
-    public ArrayList<Animal> getAll() {
+    public ArrayList<Animal> getAllAnimals() {
         return animals;
     }
 

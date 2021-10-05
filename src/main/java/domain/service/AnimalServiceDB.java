@@ -16,7 +16,7 @@ public class AnimalServiceDB implements AnimalService {
     }
 
     @Override
-    public void add(Animal animal) {
+    public void addAnimal(Animal animal) {
         String query = String.format("insert into %s.animal (name,type,food) values (?,?,?)", schema);
         try {
             PreparedStatement preparedStatement = getConnection().prepareStatement(query);
@@ -36,7 +36,7 @@ public class AnimalServiceDB implements AnimalService {
     }
 
     @Override
-    public ArrayList<Animal> getAll() {
+    public ArrayList<Animal> getAllAnimals() {
         ArrayList<Animal> animals = new ArrayList<>();
         String sql = String.format("SELECT * from %s.animal", schema);
         try {

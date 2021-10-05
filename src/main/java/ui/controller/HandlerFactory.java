@@ -1,10 +1,10 @@
 package ui.controller;
 
-import domain.service.AnimalService;
+import domain.service.AppService;
 
 public class HandlerFactory {
 
-    public RequestHandler getHandler(String command, AnimalService service) {
+    public RequestHandler getHandler(String command, AppService service) {
         RequestHandler handler = null;
         try {
             Class handlerClass = Class.forName("ui.controller." + command);

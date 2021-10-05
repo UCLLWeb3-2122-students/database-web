@@ -10,7 +10,7 @@ public class Overview extends RequestHandler {
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
         request.setAttribute("last" , session.getAttribute("lastAddedAnimal"));
-        request.setAttribute("animals", service.getAll());
+        request.setAttribute("animals", service.getAllAnimals());
         return "overview.jsp";
 
     }
