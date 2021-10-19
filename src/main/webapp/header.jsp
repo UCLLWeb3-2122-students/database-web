@@ -4,7 +4,8 @@
     <nav>
         <ul>
             <li ${param.actual eq 'Home'?"id = actual":""}>
-                <a href="Controller?command=Home">Home</a></li>
+                <a id="goHome"
+                   href="Controller?command=Home">Home</a></li>
             <li ${param.actual eq 'voegToe'?"id = actual":""}>
                 <a href="Controller?command=AddForm">Voeg Toe</a></li>
             <li ${param.actual eq 'Overzicht'?"id = actual":""}>

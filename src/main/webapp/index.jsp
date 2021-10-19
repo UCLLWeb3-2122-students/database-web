@@ -19,8 +19,6 @@
             culpa esse. Delectus nemo similique reiciendis provident quas sunt
             fuga numquam neque quibusdam eum libero eius sit nam asperiores sequi
             voluptatum!</p>
-        <p>Het laatste dier dat je hebt toegevoegd heet ${sessionScope.lastAddedAnimal.name} </p>
-
     </main>
     <jsp:include page="footer.jsp"/>
 </div>

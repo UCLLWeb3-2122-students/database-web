@@ -46,6 +46,7 @@
         <c:if test="${not empty last}">
             <p>Het laatste dier dat je hebt toegevoegd heet ${last.name} </p>
         </c:if>
+        <p>Er zijn momenteel <span id="aantalDieren">${animals.size() eq 0?"geen":animals.size()}</span> dieren toegevoegd</p>
 
     </main>
     <jsp:include page="footer.jsp"/>
