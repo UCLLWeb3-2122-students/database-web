@@ -20,7 +20,7 @@ public class OverviewPage extends Page{
         this.driver.get(this.path+"?command=Overview");
     }
 
-    public boolean aantalDierenn(int aantal){
+    public boolean aantalDieren(int aantal){
         return Integer.parseInt(aantalDieren.getText()) == aantal;
     }
 
